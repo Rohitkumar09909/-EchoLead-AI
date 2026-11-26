@@ -90,9 +90,9 @@ Through this project, the aim is to gain practical experience in:
 
 ## Author
 
-Krish
+Rohit Kumar
 
-GitHub: krishrokna
+GitHub: RohitKumar
 
 ## License
 
