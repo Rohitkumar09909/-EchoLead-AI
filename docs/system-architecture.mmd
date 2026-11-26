@@ -1,0 +1,24 @@
+flowchart TD
+  C[Customer voice or text] --> UI[Web UI: HTML CSS JS]
+  UI --> STT[Browser speech recognition]
+  STT --> UI
+  UI --> API[Java Spring Boot REST API]
+  API --> AG[Agent service]
+  AG --> AI{External AI key configured?}
+  AI -->|Yes| LLM[LLM API]
+  AI -->|No| LOCAL[Local demo response engine]
+  AG --> RAG[Knowledge retrieval service]
+  RAG --> KB[(Knowledge documents)]
+  AG --> INT[Lead intelligence service]
+  INT --> SCORE[Lead score + sentiment + objection + next action]
+  API --> CRM[Lead CRM service]
+  CRM --> DB[(H2 database)]
+  API --> BOOK[Appointment service]
+  BOOK --> DB
+  API --> ANALYTICS[Analytics endpoint]
+  ANALYTICS --> UI
+  LLM --> AG
+  LOCAL --> AG
+  AG --> UI
+  UI --> TTS[Browser speech synthesis]
+  TTS --> C

@@ -1,0 +1,16 @@
+flowchart LR
+  Client[Web / Mobile Clients] --> CDN[CDN + WAF]
+  CDN --> LB[API Gateway / Load Balancer]
+  LB --> API[Spring Boot API Replicas]
+  LB --> Voice[Realtime Voice Gateway]
+  Voice --> STT[Streaming Speech-to-Text]
+  Voice --> TTS[Streaming Text-to-Speech]
+  API --> Queue[Event Queue]
+  API --> DB[(PostgreSQL)]
+  API --> Cache[(Redis)]
+  API --> Vector[(Vector Store / pgvector)]
+  Queue --> Workers[Background Workers]
+  Workers --> CRM[CRM / Booking / Summaries]
+  Workers --> Analytics[Analytics Pipeline]
+  API --> Monitor[Metrics / Logs / Tracing]
+  Workers --> Monitor
